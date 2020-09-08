@@ -233,11 +233,11 @@ function Quiz() {
 
     <GlobalStyle />
     <Wrapper>
-    {quizOver && !startCat && !start || userAnswers.length === Total_Questions ? (
+    {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
       <h1>Quiz App</h1>) : null}
-      {quizOver && !startCat && !start || userAnswers.length === Total_Questions ? (
+      {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
       <img className='titleimage' src='https://illustratious.s3.amazonaws.com/screenshots/ow4qiv-online-education-webp.webp' alt="quiz" />) : null}
-      {quizOver && !startCat && !start || userAnswers.length === Total_Questions ? (
+      {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
       <button className='start' onClick={startButton}>Start Quiz</button> ) : null}
       {startCat && !start ? (
       <div className={classes.root}>
