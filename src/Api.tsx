@@ -1,4 +1,3 @@
-import { async } from "q";
 import {shuffleArray} from './utilities'
 
 export const fetchQuestions = async (amount: Number, category : Number ,difficulty: Difficulty) => 
