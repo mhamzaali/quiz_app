@@ -81,6 +81,10 @@ const useStyles = makeStyles((theme) => ({
    title:{
 
    },
+   titlemain:{
+    color:'white',
+    textShadow: '2px 1px 4px #000000',
+   },
 }));
 
 const Total_Questions = 10;
@@ -233,13 +237,17 @@ function Quiz() {
 
     <GlobalStyle />
     <Wrapper>
-    {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
+    {(quizOver && !startCat && !start) || userAnswers.length === Total_Questions ? (
       <h1>Quiz App</h1>) : null}
-      {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
+      {(quizOver && !startCat && !start) || userAnswers.length === Total_Questions ? (
       <img className='titleimage' src='https://illustratious.s3.amazonaws.com/screenshots/ow4qiv-online-education-webp.webp' alt="quiz" />) : null}
-      {quizOver || !startCat || !start || userAnswers.length === Total_Questions ? (
+      {(quizOver && !startCat && !start) || userAnswers.length === Total_Questions ? (
       <button className='start' onClick={startButton}>Start Quiz</button> ) : null}
-      {startCat && !start ? (
+      {(startCat && !start) ? (
+      <>
+      <Typography variant="h3" className={classes.titlemain}>
+         Select Category
+       </Typography>  
       <div className={classes.root}>
       <Paper className={classes.paper} onClick={setCeleb} elevation={3} >
       <img src="https://image.flaticon.com/icons/svg/2040/2040629.svg" alt='icon' className={classes.icons}/>
@@ -307,8 +315,12 @@ function Quiz() {
             Video Games
           </Typography>
       </Paper>
-      </div> ) : null}
+      </div> </>) : null}
       {start ? (
+      <>
+      <Typography variant="h3" className={classes.titlemain}>
+      Select Difficulty
+      </Typography>  
       <div className={classes.root2}>
       <Paper className={classes.button1} onClick={seteasy} elevation={3} >
       Easy
@@ -319,7 +331,7 @@ function Quiz() {
       <Paper className={classes.button3} onClick={sethard} elevation={3} >
       Hard
       </Paper>
-      </div> ) : null}
+      </div></> ) : null}
       {!quizOver && !start && !startCat ? (
       <p className='score'>Score : {score}</p> ) : null}
       {Loading ? (
